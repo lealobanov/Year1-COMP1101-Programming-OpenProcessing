@@ -15,10 +15,17 @@ class SmokeBrush {
   constructor(segLength=5, curvature=60, x=[20],y=[20]) {
     this.segLength = segLength; 
     this.curvature = curvature;
-    this.x = x;
-		this.y = y;
-		
+    this._x = x;
+		this._y = y;		
 	}
+
+  get x(){
+    return this._x
+  }
+
+  get y(){
+    return this._y
+  }
 
   iterate(){
     for(let i=0; i<this.curvature; i++) {
