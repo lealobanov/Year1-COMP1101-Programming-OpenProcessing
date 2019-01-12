@@ -1,10 +1,10 @@
 let art;
 
 function setup() {
-  background(255);
   createCanvas(windowWidth,windowHeight); 
-  art = new SmokeBrush 
+  art = new SmokeBrush('#FF0000') 
   art.iterate()
+
 }
 
 function draw() {
@@ -12,11 +12,13 @@ function draw() {
   }
 
 class SmokeBrush {
-  constructor(segLength=5, curvature=60, x=[20],y=[20]) {
+  constructor(coloring ='#000000' , segLength=5, curvature=60, x=[20],y=[20]) {
+    this.coloring = coloring;
     this.segLength = segLength; 
     this.curvature = curvature;
     this._x = x;
-		this._y = y;		
+		this._y = y;	
+
 	}
 
   get x(){
@@ -36,7 +38,7 @@ class SmokeBrush {
 
 	segment(x, y, a) {
       strokeWeight(1);
-      stroke(0, 0, 0,50);
+      stroke(this.coloring);
       push();
       translate(x, y);
       rotate(a);
