@@ -18,14 +18,22 @@
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-	<p>Welcome to the SmokeBrush interface. Click and drag the cursor to draw a new curve. Right click to clear the canvas.</p>
-
-	<form id = "customize">
-	Colour: 	<input type="color" input id = "colour" value="#ffffff"/><br>
-	Segment Length:  <input type='number' id = "segLength"/>
-    </form>
-	
-
+	<div class="container">
+		<div class="row">
+			<br>
+			<h3>Welcome to the SmokeBrush interface!</h3>
+			<h4>Click and drag the cursor to draw a new curve. Design your sketch by adjusting the customization properties below. Right click to clear the canvas.</h4> 
+		</div>
+		<div class="row">		
+			<ul>
+			<form id = "customize">	
+				<li style="font-size:17px;">Segment Length:  <input type="range" class="form-control-range" style="width: 180px;" id = "segLength"/></li>
+				<li style="font-size:17px;">Colour: <input type="color" input id = "colour" value="#ffffff"/></li>
+			</ul>
+    		</form>
+    	</div>
+  	</div>
+	<br>
 </body>	
 
 </html>
