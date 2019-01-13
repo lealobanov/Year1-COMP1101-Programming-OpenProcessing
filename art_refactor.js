@@ -16,6 +16,10 @@ class SmokeBrush {
 
     }
 
+    set curvature(curvature){
+        this._curvature = curvature;
+    }
+
     get curvature() {
         return this._curvature;
     }
