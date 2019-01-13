@@ -1,23 +1,23 @@
 class SmokeBrush {
-    constructor(colour ='FFFFFF' , segLength=5, curvature=60, x=[20],y=[20]) {
+    constructor(colour ='FFFFFF', segLength=5, curvature=60, x=[20],y=[20]) {
         this.colour = colour;
         this.segLength = segLength; 
-        this.curvature = curvature;
+        this._curvature = curvature;
         this._x = x;
         this._y = y;	
     }
 
-    set newColour(colour){
+    setColour(colour){
         this.colour = colour;
     }
 
-    set newSegmentLength(segLength){
+    setSegmentLength(segLength){
         this.segLength = segLength;    
 
     }
 
-    set newCurvature(curvature){
-        this.curvature = curvature
+    get curvature() {
+        return this._curvature
     }
 
     set x(x){
