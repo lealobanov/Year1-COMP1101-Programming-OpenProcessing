@@ -10,33 +10,33 @@ function setup() {
 
 function draw(obj) {
     if(obj){
-        obj.art.draw()
+        obj.art.draw();
     }
     else {
-      art.draw()
+        art.draw();
     }
 }
 
-document.addEventListener("DOMContentLoaded", function(){
-    let cc = document.getElementById("colour");
+document.addEventListener('DOMContentLoaded', function(){
+    let cc = document.getElementById('colour');
     function changeColour(event){
-    let colour = document.getElementById("colour").value;
-    art.setColour(colour);
+        let colour = document.getElementById('colour').value;
+        art.setColour(colour);
     }
 
 
-    let sl = document.getElementById("segLength");
+    let sl = document.getElementById('segLength');
     function changeSegLength(event){
-    let segLength = document.getElementById("segLength").value;
-    art.setSegmentLength(segLength);
+        let segLength = document.getElementById('segLength').value;
+        art.setSegmentLength(segLength);
     }
     
-    cc.addEventListener("change", changeColour);
-    sl.addEventListener("input", changeSegLength);
+    cc.addEventListener('change', changeColour);
+    sl.addEventListener('input', changeSegLength);
  
 
-    let customize = document.getElementById("customize");
+    let customize = document.getElementById('customize');
 
-    customize.addEventListener("submit", function (event){
-    event.preventDefault()});
+    customize.addEventListener('submit', function (event){
+        event.preventDefault();});
 });
