@@ -17,7 +17,7 @@ class SmokeBrush {
     }
 
     get curvature() {
-        return this._curvature
+        return this._curvature;
     }
 
     set x(x){
@@ -54,30 +54,29 @@ class SmokeBrush {
     }
 
     dragSegment( i,  xin,  yin) { 
- 		let dx = xin - this.x[i];
-  	let dy = yin - this.y[i];
-  	let angle = atan2(dy, dx);  
-  		this.x[i] = xin - cos(angle) * this.segLength;
-  		this.y[i] = yin - sin(angle) * this.segLength;
-  		
+        let dx = xin - this.x[i];
+        let dy = yin - this.y[i];
+        let angle = atan2(dy, dx);  
+        this.x[i] = xin - cos(angle) * this.segLength;
+        this.y[i] = yin - sin(angle) * this.segLength;
         return this.segment(this.x[i], this.y[i], angle);
-  	}
+    }
 
     draw() {
         if(mouseIsPressed && mouseButton == LEFT){
             let PX = mouseX;
             let PY= mouseY;
-  	  this.dragSegment(0, PX, PY);
+            this.dragSegment(0, PX, PY);
             for(let i=0; i<this.x.length-1; i++) {
                 this.dragSegment(i+1, this.x[i], this.y[i]);
             }
         }
         if(mouseIsPressed && mouseButton == RIGHT){
             background('#000000');  
-     }   
+        }   
     }
   
-    }
+}
 
 
 
