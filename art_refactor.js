@@ -2,7 +2,8 @@ let art;
 
 function setup() {
   createCanvas(windowWidth,windowHeight); 
-  art = new SmokeBrush('#FF0000') 
+  background('#000000')
+  art = new SmokeBrush('#FFFFFF') 
   art.iterate()
 
 }
@@ -12,7 +13,7 @@ function draw() {
   }
 
 class SmokeBrush {
-  constructor(coloring ='#000000' , segLength=5, curvature=60, x=[20],y=[20]) {
+  constructor(coloring ='#FF0000' , segLength=5, curvature=60, x=[20],y=[20]) {
     this.coloring = coloring;
     this.segLength = segLength; 
     this.curvature = curvature;
@@ -55,15 +56,20 @@ class SmokeBrush {
   		return this.segment(this.x[i], this.y[i], angle);
   	}
 
-  	draw() {
+  draw() {
+    if(mouseIsPressed && mouseButton == LEFT){
       let PX = mouseX;
       let PY= mouseY;
-  		this.dragSegment(0, PX, PY)
-  		for(let i=0; i<this.x.length-1; i++) {
+  	  this.dragSegment(0, PX, PY)
+      for(let i=0; i<this.x.length-1; i++) {
         this.dragSegment(i+1, this.x[i], this.y[i]);
       }
     }
+    if(mouseIsPressed && mouseButton == RIGHT){
+      background('#000000')
+    }
   }
+}
 
 /*
  "Smoke Brush" by Laura Valentini
