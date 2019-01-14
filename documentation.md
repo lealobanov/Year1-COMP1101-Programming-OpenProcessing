@@ -5,7 +5,7 @@ Programming Summative Assignment
 
 ## Documentation of Code
 
-The following documentation outlines refactoring of original into class form, as well as example implementation in index.js and accompanying interactive HTML webpage.
+The following documentation outlines the refactoring of a sample OpenProcessing sketch into class form, as well as its example implementation in index.js and accompanying, interactive HTML webpage.
 
 ### art_refactor.js
 First,this code defines the class SmokeBrush. 
