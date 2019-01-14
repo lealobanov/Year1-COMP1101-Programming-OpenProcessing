@@ -66,7 +66,7 @@ Subsequently, the code proceeds to define get and set methods for the class' par
 
 The remainder of the refactored class consists of 4 methods: *iterate()*, *segment()*, *drawSegment()*, and *draw()*. Upon declaring the SmokeBrush class and definining its constructor, class properties are referenced using the *this.property* syntax.
 
-First, the *iterate()* method iterates through the lists *x* and *y* *i* times, assigning a value of 1 to the index *i* at each iteration. In the original sketch, this function is initially called before any drawing occurs on the canvas; thus, in the refactored SmokeBrush class, the iterate() method is called in the setup() function. The upper bound on i is defined by *this.curvature*, as -; the values at *x[i]* and *y[i]* are later used to calculate
+First, the *iterate()* method iterates through the lists *x* and *y* *i* times, assigning a value of 1 to the index *i* at each iteration. In the original sketch, this function is initially called before any drawing occurs on the canvas; thus, in the refactored SmokeBrush class, the iterate() method is called in the setup() function. The upper bound on i is defined by *this.curvature*, as it influences the degree of curvature between drawn segments in the resulting SmokeBrush curve; the values at *x[i]* and *y[i]* are later used to calculate the angle of curvature in the *dragSegment()* method.
 
     iterate(){
         for(let i=0; i<this.curvature; i++) {
@@ -77,7 +77,9 @@ First, the *iterate()* method iterates through the lists *x* and *y* *i* times, 
     
 The subsequent *segment()*, *drawSegment()*, and *draw()* methods are nested, referencing one another at other points in the class; this results in continuous drawing of a SmokeBrush curve as the cursor moves along the screen.
 
-The *segment()* method accepts 3 arguments, *x*, *y*, and *a*. The values passed to *x*, *y*, and *a* are -.
+The *segment()* method accepts 3 arguments, *x*, *y*, and *a*. The values passed to *x*, *y*, and *a* are determined upon executing the *dragSegment()* method, which returns *this.segment* using the calculated values of *this.x[i]*, *this.y[i]*, and *angle*.
+
+Inside the *segment()* method, 
 
     segment(x, y, a) {
         strokeWeight(1);
