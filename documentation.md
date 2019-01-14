@@ -3,6 +3,9 @@ January 17, 2019
 
 Programming Summative Assignment
 ## Documentation of Code
+### art_refactor.js
+
+### index.js
 
 #### Original code sourced from OpenProcessing -
 
