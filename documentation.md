@@ -30,7 +30,6 @@ Subsequently, proceed to define get and set methods for the class' parameters. F
 
     setSegmentLength(segLength){
         this.segLength = segLength;    
-
     }
 
     set curvature(curvature){
