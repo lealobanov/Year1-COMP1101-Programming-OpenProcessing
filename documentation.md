@@ -126,4 +126,51 @@ https://creativecommons.org/licenses/GPL/2.0/
 
 ### index.js
 
+First, declare the *art* variable.
+
+The function *setup()* initializes the canvas, which takes the size of the user's screen. The canvas background is initialized to black, #000000. Next, the variable *art* is assigned to a new instance of the class *SmokeBrush()*. The *iterate()* method is called on *art*.
+
+    let art;
+    
+    function setup() {
+        createCanvas(windowWidth,windowHeight); 
+        background('#000000');
+        art = new SmokeBrush(); 
+        art.iterate();
+    }
+
+Once the canvas and new SmokeBrush class instance have been initialized, the *draw()* function is called. 
+
+    function draw(obj) {
+        if(obj){
+            obj.art.draw();
+        }
+        else {
+         art.draw();
+        }
+    }
+
+Lorem ipsum 
+
+    document.addEventListener('DOMContentLoaded', function(){
+        let cc = document.getElementById('colour');
+        function changeColour(event){
+            let colour = document.getElementById('colour').value;
+            art.setColour(colour);
+        }
+
+    let sl = document.getElementById('segLength');
+    function changeSegLength(event){
+        let segLength = document.getElementById('segLength').value;
+        art.setSegmentLength(segLength);
+    }
+    
+    cc.addEventListener('change', changeColour);
+    sl.addEventListener('input', changeSegLength);
+
+    let customize = document.getElementById('customize');
+
+    customize.addEventListener('submit', function (event){
+        event.preventDefault();});
+});
 ### example.html
