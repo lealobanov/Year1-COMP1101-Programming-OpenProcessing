@@ -12,7 +12,7 @@ First, this code defines the class SmokeBrush.
 
     class SmokeBrush {
 
-The SmokeBrush constructor accepts 5 parameters, *colour*, *segLength*, *curvature*, *x*, and *y*. The paramters are intinialized with default values; these values are those that draw the default SmokeBrush curve used in the original OpenProcessing sketch. curvature, x, and y are denoted as private properties, as they are utilized in the class' methods but are otherwise left untouched for customization purposes.
+The SmokeBrush constructor accepts 5 parameters, *colour*, *segLength*, *curvature*, *x*, and *y*. The paramters are initialized with default values; these values are those that draw the default SmokeBrush curve used in the original OpenProcessing sketch. curvature, x, and y are denoted as private properties, as they are utilized in the class' methods but are otherwise left untouched for customization purposes.
 
     constructor(colour ='FFFFFF', segLength=5, curvature=60, x=[20],y=[20]) {
          this.colour = colour;
