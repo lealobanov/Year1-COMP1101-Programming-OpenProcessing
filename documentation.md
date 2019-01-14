@@ -8,11 +8,11 @@ Programming Summative Assignment
 The following documentation outlines the refactoring of a sample OpenProcessing sketch into class form, as well as its example implementation in index.js and accompanying, interactive HTML webpage.
 
 ### art_refactor.js
-First,this code defines the class SmokeBrush. 
+First, this code defines the class SmokeBrush. 
 
     class SmokeBrush {
 
-The SmokeBrush constructor accepts 5 parameters, *colour*, *segLength*, *curvature*, *x*, and *y*. Default values. Private variables/methods as will be accepted into function methods and otherwise untouched for customization purposes.
+The SmokeBrush constructor accepts 5 parameters, *colour*, *segLength*, *curvature*, *x*, and *y*. The paramters are intinialized with default values; these values are those that draw the default SmokeBrush curve used in the original OpenProcessing sketch. curvature, x, and y are denoted as private properties, as they are utilized in the class' methods but are otherwise left untouched for customization purposes.
 
     constructor(colour ='FFFFFF', segLength=5, curvature=60, x=[20],y=[20]) {
          this.colour = colour;
@@ -22,7 +22,7 @@ The SmokeBrush constructor accepts 5 parameters, *colour*, *segLength*, *curvatu
          this._y = y;	
         }
         
-Subsequently, proceed to define get and set methods for the class' parameters. Formality of code style. As colour and segLength are not private, only use set method which is later called when formatting form controls on example HTML page. Both get and set methods are created for curvature, x, and y parameters, which are used to reference these parameters further in the code.
+Subsequently, the code proceeds to define get and set methods for the class' parameters. Formality of code style. As colour and segLength are not private, only use set method which is later called when formatting form controls on example HTML page. Both get and set methods are created for curvature, x, and y parameters, which are used to reference these parameters further in the code.
 
     setColour(colour){
         this.colour = colour;
