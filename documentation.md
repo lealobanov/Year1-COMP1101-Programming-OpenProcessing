@@ -150,7 +150,7 @@ Once the canvas and new SmokeBrush class instance have been initialized, the *dr
         }
     }
 
-The last portion of *index.js* concerns form controls on the sample HTML webpage, discussed below.
+The last portion of *index.js* concerns form controls on the sample HTML webpage, discussed below. The parameters are assigned -.
 
     document.addEventListener('DOMContentLoaded', function(){
         let cc = document.getElementById('colour');
@@ -159,18 +159,19 @@ The last portion of *index.js* concerns form controls on the sample HTML webpage
             art.setColour(colour);
         }
 
-    let sl = document.getElementById('segLength');
-    function changeSegLength(event){
-        let segLength = document.getElementById('segLength').value;
-        art.setSegmentLength(segLength);
-    }
+        let sl = document.getElementById('segLength');
+        function changeSegLength(event){
+            let segLength = document.getElementById('segLength').value;
+            art.setSegmentLength(segLength);
+        }
     
-    cc.addEventListener('change', changeColour);
-    sl.addEventListener('input', changeSegLength);
+        cc.addEventListener('change', changeColour);
+        sl.addEventListener('input', changeSegLength);
 
-    let customize = document.getElementById('customize');
-
-    customize.addEventListener('submit', function (event){
-        event.preventDefault();});
-});
+        let customize = document.getElementById('customize');
+    
+        customize.addEventListener('submit', function (event){
+            event.preventDefault();});
+        }    
+        
 ### example.html
