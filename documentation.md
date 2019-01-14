@@ -128,7 +128,7 @@ https://creativecommons.org/licenses/GPL/2.0/
 
 First, declare the *art* variable.
 
-The function *setup()* initializes the canvas, which takes the size of the user's screen. The canvas background is initialized to black, #000000. Next, the variable *art* is assigned to a new instance of the class *SmokeBrush()*. The *iterate()* method is called on *art*.
+The function *setup()* initializes the canvas, which takes the size of the user's screen. The canvas background is initialized to black, hex #000000. Next, the variable *art* is assigned to a new instance of the class *SmokeBrush()*. The *iterate()* method is called on *art*.
 
     let art;
     
@@ -139,7 +139,7 @@ The function *setup()* initializes the canvas, which takes the size of the user'
         art.iterate();
     }
 
-Once the canvas and new SmokeBrush class instance have been initialized, the *draw()* function is called. 
+Once the canvas and new SmokeBrush class instance have been initialized, the *draw()* function is called. To account for an optional p5.Renderer parameter, the *draw()* function can take two different forms, depending if p5.Renderer is present. If a p5.Renderer object is passed to the *draw()* function, *obj.art.draw()* is carried out, calling the *draw()* method from the SmokeBrush class. Otherwise, if no p5.Renderer object is passed to the *draw()* function, *art.draw()* is executed.
 
     function draw(obj) {
         if(obj){
@@ -150,7 +150,7 @@ Once the canvas and new SmokeBrush class instance have been initialized, the *dr
         }
     }
 
-Lorem ipsum 
+The last portion of *index.js* concerns form controls on the sample HTML webpage, discussed below.
 
     document.addEventListener('DOMContentLoaded', function(){
         let cc = document.getElementById('colour');
