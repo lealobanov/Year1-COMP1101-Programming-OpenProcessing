@@ -4,7 +4,7 @@ January 17, 2019
 Programming Summative Assignment
 ## Documentation of Code
 
-Original code sourced from OpenProcessing -
+#### Original code sourced from OpenProcessing -
 
 "Smoke Brush" by Laura Valentini: http://www.openprocessing.org/sketch/583697
 
