@@ -111,8 +111,6 @@ Lastly, the *draw()* method implements the *dragSegment()* (and, therefore, *seg
         }   
     }
 
-### index.js
-
 #### Original code sourced from OpenProcessing -
 
 "Smoke Brush" by Laura Valentini: http://www.openprocessing.org/sketch/583697
@@ -124,3 +122,7 @@ https://creativecommons.org/licenses/by-sa/3.0
 https://creativecommons.org/licenses/GPL/2.0/
 
 ## Documentation of Example
+
+### index.js
+
+### example.html
