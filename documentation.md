@@ -7,7 +7,7 @@ Programming Summative Assignment
 First,this code defines the class SmokeBrush. 
     class SmokeBrush {
 
-The class constructor accepts 5 parameters, 
+The SmokeBrush constructor accepts 5 parameters, 
     constructor(colour ='FFFFFF', segLength=5, curvature=60, x=[20],y=[20]) {
          this.colour = colour;
          this.segLength = segLength; 
