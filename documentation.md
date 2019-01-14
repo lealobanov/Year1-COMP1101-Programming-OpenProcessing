@@ -66,7 +66,7 @@ Subsequently, the code proceeds to define get and set methods for the class' par
 
 The remainder of the refactored class consists of 4 methods: *iterate()*, *segment()*, *drawSegment()*, and *draw()*. Upon declaring the SmokeBrush class and definining its constructor, class properties are referenced using the *this.property* syntax.
 
-First, the iterate() method -.
+First, the *iterate()* method iterates through the lists *x* and *y* *i* times, assigning a value of 1 to the index *i* at each iteration. In the original sketch, this function is initially called before any drawing occurs on the canvas; thus, in the refactored SmokeBrush class, the iterate() method is called in the setup() function. The upper bound on i is defined by *this.curvature*, as -; the values at *x[i]* and *y[i]* are later used to calculate
 
     iterate(){
         for(let i=0; i<this.curvature; i++) {
@@ -75,8 +75,10 @@ First, the iterate() method -.
         }  
     }
     
-The next - methods perform multiple function calls to themselves; reference one another - results in continuous drawing of curve as cursor moves along the screen.
-    
+The subsequent *segment()*, *drawSegment()*, and *draw()* methods are nested, referencing one another at other points in the class; this results in continuous drawing of a SmokeBrush curve as the cursor moves along the screen.
+
+The *segment()* method accepts 3 arguments, *x*, *y*, and *a*. The values passed to *x*, *y*, and *a* are -.
+
     segment(x, y, a) {
         strokeWeight(1);
         stroke(this.colour);
