@@ -1,7 +1,8 @@
 # Documentation
 January 17, 2019
+
 Programming Summative Assignment
-## Documentation of code
+## Documentation of Code
 
 Original code sourced from OpenProcessing
 
@@ -11,4 +12,4 @@ Licensed under Creative Commons Attribution ShareAlike
 https://creativecommons.org/licenses/by-sa/3.0
 https://creativecommons.org/licenses/GPL/2.0/
 
-## Documentation of example
+## Documentation of Example
