@@ -94,7 +94,8 @@ Next, the *dragSegment()* method accepts 3 arguments, *i*, *xin*, and *yin*. The
         return this.segment(this.x[i], this.y[i], angle);
     }
 
-Lastly, the *draw()* method carries out/performs
+Lastly, the *draw()* method implements the *dragSegment()* (and, therefore, *segment()) method(s), thereby drawing a SmokeBrush curve on the canvas. In extending the functionality of the orignial sketch, I have incorporated a series of if-statements that respond to the user's mouse behavior. If the mouse is pressed and left mouse button is clicked, SmokeBrush will be drawn to the canvas. Previously, drawing would occur upon dragging the cursor across the screen, regardless if the mouse was clicked or not; thus, the user can now select where to draw a SmokeBrush curve, and can customize the curve appearance between drawings (in essence, multiple distinct curves can be drawn on the same canvas). Additionally, if the mouse is pressed and right mouse button is clicked, the canvas is cleared. This functionality enables the user to clear the screen and draw a new SmokeBrush curve without refreshing the webpage.
+
 
     draw() {
         if(mouseIsPressed && mouseButton == LEFT){
