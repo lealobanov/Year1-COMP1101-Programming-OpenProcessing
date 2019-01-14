@@ -27,6 +27,7 @@ Subsequently, the code proceeds to define get and set methods for the class' par
     setColour(colour){
         this.colour = colour;
     }
+    
     get colour(){
         return this.colour;
     }
@@ -63,7 +64,7 @@ Subsequently, the code proceeds to define get and set methods for the class' par
         return this._y;
     }
 
-The remainder of refactored class consists of 4 methods: *iterate()*, *segment()*, *drawSegment()*, and *draw()*. Upon declaring the SmokeBrush class and definining the constructor, refer to class properties(?) using this.property syntax.
+The remainder of the refactored class consists of 4 methods: *iterate()*, *segment()*, *drawSegment()*, and *draw()*. Upon declaring the SmokeBrush class and definining its constructor, class properties are referenced using the *this.property* syntax.
 
 First, the iterate() method -.
 
