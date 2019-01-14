@@ -79,7 +79,7 @@ The subsequent *segment()*, *drawSegment()*, and *draw()* methods are nested, re
 
 The *segment()* method accepts 3 arguments, *x*, *y*, and *a*. The values passed to *x*, *y*, and *a* are determined upon executing the *dragSegment()* method, which returns *this.segment* using the calculated values of *this.x[i]*, *this.y[i]*, and *angle*.
 
-Inside the *segment()* method, pre-defined p5 function calls *strokeWeight()* and *stroke()* are used to style the thickness and color of the SmokeBrush curve. Further, *translate()*, *rotate()*, and *line()* are used to locate a new position on the canvas and draw a line between specified coordinates. *line()* references the *this.segLength* property, which specifies the length of the line to be drawn, given that the value of all other coordinates passed to the function is 0. 
+Inside the *segment()* method, pre-defined p5 function calls *strokeWeight()* and *stroke()* are used to style the thickness and color of the SmokeBrush curve. Further, *translate()*, *rotate()*, and *line()* are used to locate a new position on the canvas and draw a line between specified coordinates. *line()* references the *this.segLength* property, which specifies the length of the line to be drawn, given that the value of all other coordinates passed to the function is 0. *rotate()* -.
 
     segment(x, y, a) {
         strokeWeight(1);
@@ -91,7 +91,7 @@ Inside the *segment()* method, pre-defined p5 function calls *strokeWeight()* an
         pop();
     }
 
-Next, the *dragSegment()* method accepts 3 arguments, *i*, *xin*, and *yin*. The values passed to *i*, *xin*, and *yin* are determined upon executing the *draw()* method, which, when the left mouse button is pressed, executes this.dragSegment() using the current cursor coordinates and in a for loop using the values *this.x[i]* and *this.y[i]*. *dragSegment()* utilizes the p5 function calls *sin()*, *cos()*, and *atan2()* to 
+Next, the *dragSegment()* method accepts 3 arguments, *i*, *xin*, and *yin*. The values passed to *i*, *xin*, and *yin* are determined upon executing the *draw()* method, which, when the left mouse button is pressed, executes this.dragSegment() using the current cursor coordinates and in a for loop using the values *this.x[i]* and *this.y[i]*. *dragSegment()* utilizes the p5 function calls *sin()*, *cos()*, and *atan2()* to produce linear movement and orient the SmokeBrush curve in relation with the position of the cursor. Specifically, *sin(angle)* and *cos(angle)* return values between -1 and 1, which are then scaled by a factor of *this.segLength* to generate linear movement. *atan2()* returns the angle from a specified point (dx,dy) to the origin as measured from the positive x-axis; this value is assigned to the variable *angle*, and is passed to *sin()*, *cos()*, and a call to *this.segment()*.
 
     dragSegment( i,  xin,  yin) { 
         let dx = xin - this.x[i];
