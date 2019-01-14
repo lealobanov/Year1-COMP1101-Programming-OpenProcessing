@@ -1,6 +1,5 @@
 # Documentation
 January 17, 2019
-
 Programming Summative Assignment
 ## Documentation of Code
 
