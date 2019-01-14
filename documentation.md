@@ -27,17 +27,9 @@ Subsequently, the code proceeds to define get and set methods for the class' par
     setColour(colour){
         this.colour = colour;
     }
-    
-    get colour(){
-        return this.colour;
-    }
 
     setSegmentLength(segLength){
         this.segLength = segLength;    
-    }
-    
-    get segLength(){
-        return this.segLength;
     }
 
     set curvature(curvature){
@@ -79,7 +71,7 @@ The subsequent *segment()*, *drawSegment()*, and *draw()* methods are nested, re
 
 The *segment()* method accepts 3 arguments, *x*, *y*, and *a*. The values passed to *x*, *y*, and *a* are determined upon executing the *dragSegment()* method, which returns *this.segment* using the calculated values of *this.x[i]*, *this.y[i]*, and *angle*.
 
-Inside the *segment()* method, pre-defined p5 function calls *strokeWeight()* and *stroke()* are used to style the thickness and color of the SmokeBrush curve. Further, *translate()*, *rotate()*, and *line()* are used to locate a new position on the canvas and draw a line between specified coordinates. *line()* references the *this.segLength* property, which specifies the length of the line to be drawn, given that the value of all other coordinates passed to the function is 0. *rotate()* -.
+Inside the *segment()* method, pre-defined p5 function calls *strokeWeight()* and *stroke()* are used to style the thickness and color of the SmokeBrush curve. Further, *translate()*, *rotate()*, and *line()* are used to locate a new position on the canvas and draw a line between specified coordinates. *line()* references the *this.segLength* property, which specifies the length of the line to be drawn, given that the value of all other coordinates passed to the function is 0. *rotate()* accepts the argument a.
 
     segment(x, y, a) {
         strokeWeight(1);
@@ -102,7 +94,7 @@ Next, the *dragSegment()* method accepts 3 arguments, *i*, *xin*, and *yin*. The
         return this.segment(this.x[i], this.y[i], angle);
     }
 
-Text here
+Lastly, the *draw()* method carries out/performs
 
     draw() {
         if(mouseIsPressed && mouseButton == LEFT){
