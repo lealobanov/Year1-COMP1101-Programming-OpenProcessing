@@ -171,7 +171,7 @@ The last portion of *index.js* concerns form controls on the sample HTML webpage
         let customize = document.getElementById('customize');
     
         customize.addEventListener('submit', function (event){
-            event.preventDefault();});
+            event.preventDefault()
         }    
         
 ### example.html
