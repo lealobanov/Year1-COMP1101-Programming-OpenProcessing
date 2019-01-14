@@ -79,7 +79,7 @@ The subsequent *segment()*, *drawSegment()*, and *draw()* methods are nested, re
 
 The *segment()* method accepts 3 arguments, *x*, *y*, and *a*. The values passed to *x*, *y*, and *a* are determined upon executing the *dragSegment()* method, which returns *this.segment* using the calculated values of *this.x[i]*, *this.y[i]*, and *angle*.
 
-Inside the *segment()* method, 
+Inside the *segment()* method, pre-defined p5 function calls *strokeWeight()* and *stroke()* are used to style the thickness and color of the SmokeBrush curve. Further, *translate()*, *rotate()*, and *line()* are used to locate a new position on the canvas (-) and draw a line between specified coordinates. *line()* references the *this.segLength* property, which specifies 
 
     segment(x, y, a) {
         strokeWeight(1);
@@ -91,7 +91,7 @@ Inside the *segment()* method,
         pop();
     }
 
-Text here
+Next, the *dragSegment()* method 
 
     dragSegment( i,  xin,  yin) { 
         let dx = xin - this.x[i];
