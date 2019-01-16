@@ -1,3 +1,5 @@
+//Define the SmokeBrush() class. Inside the constructor, pecifying class parameters and their default values.
+
 class SmokeBrush {
     constructor(colour ='#B0E0E6', segLength=7, strokeWght=1, xcurve=0.15, ycurve=0, curvature=60, x=[20],y=[20]) {
         this.colour = colour;
@@ -10,6 +12,7 @@ class SmokeBrush {
         this.y = y;	
     }
 
+//Defining get and set methods for all class parameters.
     getColour(){
         return this.colour;
     }
@@ -59,7 +62,7 @@ class SmokeBrush {
         this.y = y;
     }
 
-
+//Defining the iterate method, which is called inside the setup() function in index.js. This for loop runs before the .draw() method executes.
     iterate(){
         for(let i=0; i<this.curvature; i++) {
             this.x[i]=1;
@@ -67,6 +70,7 @@ class SmokeBrush {
         }  
     }
 
+//The colorCheck(), strokeWghtCheck(), and segLengthCheck() methods examine whether the respective checkboxes in index.html form controls are checked. If checked, true is returned.
     colorCheck(){
         if (document.getElementById('randomcolor').checked) 
             return true;
@@ -85,6 +89,7 @@ class SmokeBrush {
 
     }
 
+//The segment(), dragSegment(), and draw() methods carry out necessary calculations and draw the sketch to the canvas.
     segment(x, y, a) {
         if (this.strokeWghtCheck() != true) {
             strokeWeight(this.strokeWght); 
@@ -122,6 +127,7 @@ class SmokeBrush {
         return this.segment(this.x[i], this.y[i], angle);
     }
 
+// The draw() method accounts for an optional p5.Renderer object.
     draw(g) {
         if(g === undefined){
             if(mouseIsPressed && mouseButton == LEFT){
@@ -142,8 +148,8 @@ class SmokeBrush {
                 let PX = mouseX;
                 let PY= mouseY;
                 g.this.dragSegment(0, PX, PY);
-                for(let i=0; i<this.x.length-1; i++) {
-                    g.this.dragSegment(i+1, this.x[i], this.y[i]);
+                for(let i=0; i<g.this.x.length-1; i++) {
+                    g.this.dragSegment(i+1, g.this.x[i], g.this.y[i]);
                 } 
             }
             if(mouseIsPressed && mouseButton == RIGHT){
