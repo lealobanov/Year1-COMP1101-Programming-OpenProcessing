@@ -34,7 +34,7 @@ Subsequently, the code proceeds to define get and set methods for the class' par
         this.colour = colour;
     }
     getSegmentLength(){
-        return this.segLengthr;
+        return this.segLength;
     }   
     setSegmentLength(segLength){
         this.segLength = segLength;    
