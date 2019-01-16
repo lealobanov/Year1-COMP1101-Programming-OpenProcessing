@@ -73,7 +73,7 @@ Subsequently, the code proceeds to define get and set methods for the class' par
         return this.y;
     }  
     setY(y){
-        this.y =y;
+        this.y = y;
     }
 
 The remainder of the refactored class consists of 4 methods: *iterate()*, *segment()*, *drawSegment()*, and *draw()*. Upon declaring the SmokeBrush class and definining its constructor, class properties are referenced using the *this.property* syntax.
@@ -91,7 +91,9 @@ The subsequent *segment()*, *drawSegment()*, and *draw()* methods are nested, re
 
 The *segment()* method accepts 3 arguments, *x*, *y*, and *a*. The values passed to *x*, *y*, and *a* are determined upon executing the *dragSegment()* method, which returns *this.segment* using the calculated values of *this.x[i]*, *this.y[i]*, and *angle*.
 
-Inside the *segment()* method, pre-defined p5 function calls *strokeWeight()* and *stroke()* are used to style the thickness and color of the SmokeBrush curve. Further, *translate()*, *rotate()*, and *line()* are used to locate a new position on the canvas and draw a line between specified coordinates. *line()* references the *this.segLength* property, which specifies the length of the line to be drawn, given that the value of all other coordinates passed to the function is 0. *rotate()* accepts the argument a, which takes the value of *angle* set out in *dragSegment()*; this function call contributes to rotating the SmokeBrush curve as new strokes are drawn.
+Inside the *segment()* method, pre-defined p5 function calls *strokeWeight()* and *stroke()* are used to style the thickness and color of the SmokeBrush curve. If-else statements are used to check whether the user has opted to randomize the value of a particular property; if not, values taken by *this.strokeWght*, *this.colour*, and *this.segLength* are passed to the appropriate p5 functions. Otherwise, random HEX and number values are generated for *strokeWeight()*, *stroke()*, and *line()* each time the method *segment()* is called. This results in a continuously randomized SmokeBrush curve as the user clicks and drags the cursor across the canvas.
+
+Further, *translate()*, *rotate()*, and *line()* are used to locate a new position on the canvas and draw a line of length *this.segLength* between specified coordinates. *line()* references the *this.segLength* property, which specifies the length of the line to be drawn, given that the value of all other coordinates passed to the function is 0. *rotate()* accepts the argument a, which takes the value of *angle* set out in *dragSegment()*; this function call contributes to rotating the SmokeBrush curve as new strokes are drawn.
 
     segment(x, y, a) {
         if (this.strokeWghtCheck() != true) {
