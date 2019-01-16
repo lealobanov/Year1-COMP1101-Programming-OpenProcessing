@@ -261,10 +261,12 @@ Next, declaring the body of the HTML page with an opening <body> tag and assigni
 	
 	<div class="container">
 
-Inside <div class="container">, proceed to create a row. Inside this row, instructions are provided for the webpage's user interface. 
+Inside '<div class="container">', proceed to create a row. Inside this row, instructions are provided for the webpage's user interface. 
 
     <div class="row">
-	    <h4 style="padding-top: 5px; font-size: 16px;">Welcome to the SmokeBrush interface! Click and drag the cursor to draw a new curve. Design your sketch by adjusting the customization properties below. Right click to clear the canvas.</h4> 
+    
+    	<h4 style="padding-top: 5px; font-size: 16px;">Welcome to the SmokeBrush interface! Click and drag the cursor to draw a new curve. Design your sketch by adjusting the customization properties below. Right click to clear the canvas.</h4> 
+   
     </div>
  
 Inside a new row, proceed to create an inline form with the id 'customize'. Actions taken on this form are monitored by event listeners in *index.js*, and subsequently influence appearance of the sketch by modifying properties of the *SmokeBrush()* class defined in *art_refactor.js*.
