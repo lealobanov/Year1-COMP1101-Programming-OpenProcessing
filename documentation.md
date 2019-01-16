@@ -25,7 +25,7 @@ The SmokeBrush constructor accepts 8 parameters, *colour*, *segLength*, *strokeW
         this.y = y;	
     }
         
-Subsequently, the code proceeds to define get and set methods for the class' parameters. Although most are unused in the SmokeBrush class itself, these are defined for purposes of developing a reusable component from the original OpenProcessing sketch. Incorporating getters and setters is generally considered best practice, as it allows for flexibility in code functionality and modification; if one must make alterations to code when a class property is accessed or modified, necessary modifications can be made in the existing getter and/or setter as opposed to within the code itself. 
+Subsequently, the code proceeds to define get and set methods for the class' parameters. Although most are unused in the SmokeBrush class itself, these are defined for purposes of developing a reusable component from the original OpenProcessing sketch. Incorporating getters and setters is generally considered best practice, as it allows for flexibility in code functionality and modification; if one must make alterations to code when a class property is accessed or modified, necessary modifications can be made in the existing getter and/or setter as opposed to within the property itself. 
 
     getColour(){
         return this.colour;
@@ -123,34 +123,52 @@ Further, *translate()*, *rotate()*, and *line()* are used to locate a new positi
         pop();
     }
 
-Next, the *dragSegment()* method accepts 3 arguments, *i*, *xin*, and *yin*. The values passed to *i*, *xin*, and *yin* are determined upon executing the *draw()* method, which, when the left mouse button is pressed, executes this.dragSegment() using the current cursor coordinates and in a for loop using the values *this.x[i]* and *this.y[i]*. *dragSegment()* utilizes the p5 function calls *sin()*, *cos()*, and *atan2()* to produce linear movement and orient the SmokeBrush curve in relation with the position of the cursor. Specifically, *sin(angle)* and *cos(angle)* return values between -1 and 1, which are then scaled by a factor of *this.segLength* to generate linear movement. *atan2()* returns the angle from a specified point (dx,dy) to the origin as measured from the positive x-axis; this value is assigned to the variable *angle*, and is passed to *sin()*, *cos()*, and a call to *this.segment()*.
+Next, the *dragSegment()* method accepts 3 arguments, *i*, *xin*, and *yin*. The values passed to *i*, *xin*, and *yin* are determined upon executing the *draw()* method, which, when the left mouse button is pressed, executes this.dragSegment() using the current cursor coordinates and in a for loop using the values *this.x[i]* and *this.y[i]*. *dragSegment()* utilizes the p5 function calls *sin()*, *cos()*, and *atan2()* to produce linear movement and orient the SmokeBrush curve in relation with the position of the cursor. Specifically, *sin(angle+this.xcurve)* and *cos(angle+this.ycurve)* return values between -1 and 1, which are then scaled by a factor of *this.segLength* to generate outward curve movement. In extending the functionality of the original sketch, *sin(angle)* and *cos(angle)* have been modified to account for a customization of horizontal (x) and vertical (y) curvature. *atan2()* returns the angle from a specified point (dx,dy) to the origin as measured from the positive x-axis; this value is assigned to the variable *angle*, and is passed to *sin()*, *cos()*, and a call to *this.segment()*.
 
     dragSegment( i,  xin,  yin) { 
         let dx = xin - this.x[i];
         let dy = yin - this.y[i];
         let angle = atan2(dy, dx);  
-        this.x[i] = xin - cos(angle) * this.segLength;
-        this.y[i] = yin - sin(angle) * this.segLength;
+        this.x[i] = xin - cos(angle+this.xcurve) * this.segLength;
+        this.y[i] = yin - sin(angle+this.ycurve) * this.segLength;
         return this.segment(this.x[i], this.y[i], angle);
     }
 
-Lastly, the *draw()* method implements the *dragSegment()* (and, therefore, *segment()) method(s), thereby drawing a SmokeBrush curve on the canvas. In extending the functionality of the orignial sketch, I have incorporated a series of if-statements that respond to the user's mouse behavior. If the mouse is pressed and left mouse button is clicked, SmokeBrush will be drawn to the canvas. Previously, drawing would occur upon dragging the cursor across the screen, regardless if the mouse was clicked or not; thus, the user can now select where to draw a SmokeBrush curve, and can customize the curve appearance between drawings (in essence, multiple distinct curves can be drawn on the same canvas). Additionally, if the mouse is pressed and right mouse button is clicked, the canvas is cleared. This functionality enables the user to clear the screen and draw a new SmokeBrush curve without refreshing the webpage.
+Lastly, the *draw()* method implements the *dragSegment()* (and, as a result of nesting, *segment()*) method(s), thereby drawing a SmokeBrush curve on the canvas. In further extending the functionality of the orignial sketch, I have incorporated a series of if-statements that respond to the user's mouse behavior. If the mouse is pressed and left mouse button is clicked, SmokeBrush will be drawn to the canvas. Previously, drawing would occur upon dragging the cursor across the screen, regardless if the mouse was clicked or not; thus, the user can now select where to draw a SmokeBrush curve, and can customize the curve appearance between drawings (in essence, multiple distinct curves can be drawn on the same canvas). Additionally, if the mouse is pressed and right mouse button is clicked, the canvas is cleared. This functionality enables the user to clear the screen and draw a new SmokeBrush curve without refreshing the webpage.
 
 When the left mouse button is pressed and held, *draw()* executes by calling *this.dragSegment()*, which in turn calls *segment()*. The *dragSegment()* method is first called on the X and Y coordinates of the mouse cursor's current position. *dragSegment()* is then again called inside a for loop, iterating i times, where i is bounded by the length of the list *x*. At each iteration, *this.dragSegment()* is called on the arguments *i+1*, *this.x[i]*, and *this.y[i]*.
 
-    draw() {
-        if(mouseIsPressed && mouseButton == LEFT){
-            let PX = mouseX;
-            let PY= mouseY;
-            this.dragSegment(0, PX, PY);
-            for(let i=0; i<this.x.length-1; i++) {
-                this.dragSegment(i+1, this.x[i], this.y[i]);
+To account for an optional p5.Renderer parameter, the *draw()* method can take two different forms, depending if p5.Renderer is present. If no p5.Renderer object is passed to the *draw()* method, the method executes and *classname.draw()* is called in *index.js*. Otherwise,if a p5.Renderer object is passed to the *draw()* function, the *draw()* method performs draw operations on the object *g*.
+
+    draw(g) {
+        if(g === undefined){
+            if(mouseIsPressed && mouseButton == LEFT){
+                let PX = mouseX;
+                let PY= mouseY;
+                this.dragSegment(0, PX, PY);
+                for(let i=0; i<this.x.length-1; i++) {
+                    this.dragSegment(i+1, this.x[i], this.y[i]);
+                }
             }
+            if(mouseIsPressed && mouseButton == RIGHT){
+                background('#000000');  
+            } 
         }
-        if(mouseIsPressed && mouseButton == RIGHT){
-            background('#000000');  
-        }   
-    }
+    
+        else {
+            if(mouseIsPressed && mouseButton == LEFT){  
+                let PX = mouseX;
+                let PY= mouseY;
+                g.this.dragSegment(0, PX, PY);
+                for(let i=0; i<this.x.length-1; i++) {
+                    g.this.dragSegment(i+1, this.x[i], this.y[i]);
+                } 
+            }
+            if(mouseIsPressed && mouseButton == RIGHT){
+                background('#000000');  
+            } 
+        }
+    } 
 
 #### Original code sourced from OpenProcessing -
 
@@ -179,18 +197,14 @@ The function *setup()* initializes the canvas, which takes the size of the user'
         art.iterate();
     }
 
-Once the canvas and new SmokeBrush class instance have been initialized, the *draw()* function is called. To account for an optional p5.Renderer parameter, the *draw()* function can take two different forms, depending if p5.Renderer is present. If a p5.Renderer object is passed to the *draw()* function, *obj.art.draw()* is carried out, calling the *draw()* method from the SmokeBrush class. Otherwise, if no p5.Renderer object is passed to the *draw()* function, *art.draw()* is executed.
+Once the canvas and new SmokeBrush class instance have been initialized, the *draw()* function is called. 
 
-    function draw(obj) {
-        if(obj){
-            obj.art.draw();
-        }
-        else {
-         art.draw();
-        }
+    function draw() {   
+    art.draw();
     }
 
-The last portion of *index.js* concerns form controls on the sample HTML webpage, discussed below. The parameters are assigned, establish link -.
+
+The last portion of *index.js* concerns form controls on the sample HTML webpage, discussed below. JS event listeners are established to respond to user input on HTML form elements, and subsequently call *SmokeBrush()* set functions to reassign values to class properties. This facilitates interaction between *example.HTML*, *index.js*, and the SmokeBrush class defined in *art_refactor.js*.
 
     document.addEventListener('DOMContentLoaded', function(){
         let cc = document.getElementById('colour');
