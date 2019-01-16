@@ -56,7 +56,7 @@ class SmokeBrush {
         return this.y;
     }  
     setY(y){
-        this.y =y;
+        this.y = y;
     }
 
 
