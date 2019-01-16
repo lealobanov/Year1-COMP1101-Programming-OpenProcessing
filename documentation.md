@@ -7,7 +7,7 @@ The following documentation outlines the refactoring of a sample OpenProcessing 
 
 ## Documentation of Code
 
-### art_refactor.js
+### smokebrush.js
 First, this code defines the class SmokeBrush. 
 
     class SmokeBrush {
@@ -160,8 +160,8 @@ To account for an optional p5.Renderer parameter, the *draw()* method can take t
                 let PX = mouseX;
                 let PY= mouseY;
                 g.this.dragSegment(0, PX, PY);
-                for(let i=0; i<this.x.length-1; i++) {
-                    g.this.dragSegment(i+1, this.x[i], this.y[i]);
+                for(let i=0; i<g.this.x.length-1; i++) {
+                    g.this.dragSegment(i+1, g.this.x[i], g.this.y[i]);
                 } 
             }
             if(mouseIsPressed && mouseButton == RIGHT){
@@ -204,7 +204,7 @@ Once the canvas and new SmokeBrush class instance have been initialized, the *dr
     }
 
 
-The last portion of *index.js* concerns form controls on the sample HTML webpage, discussed below. JS event listeners are established to respond to user input on HTML form elements, and subsequently call *SmokeBrush()* set functions to reassign values to class properties. This facilitates interaction between *example.HTML*, *index.js*, and the SmokeBrush class defined in *art_refactor.js*.
+The last portion of *index.js* concerns form controls on the sample HTML webpage, discussed below. JS event listeners are established to respond to user input on HTML form elements, and subsequently call *SmokeBrush()* set functions to reassign values to class properties. This facilitates interaction between *example.HTML*, *index.js*, and the SmokeBrush class defined in *smokebrush.js*.
 
     document.addEventListener('DOMContentLoaded', function(){
         let cc = document.getElementById('colour');
@@ -236,7 +236,7 @@ Lastly, a JS event listener is used to respond to user form entries.
         event.preventDefault();});
     });
     
-### example.html
+### index.html
 
 First, making the <!DOCTYPE> declaration and opening HTML tag:
 
@@ -269,7 +269,7 @@ Inside this container, proceed to create a row. Inside this row, instructions ar
    
     </div>
  
-Inside a new row, proceed to create an inline form with the id 'customize'. Actions taken on this form are monitored by event listeners in *index.js*, and subsequently influence the appearance of the sketch by modifying properties of the *SmokeBrush()* class defined in *art_refactor.js*.
+Inside a new row, proceed to create an inline form with the id 'customize'. Actions taken on this form are monitored by event listeners in *index.js*, and subsequently influence the appearance of the sketch by modifying properties of the *SmokeBrush()* class defined in *smokebrush.js*.
 
     <div class="row">	
     
@@ -309,11 +309,11 @@ Each form field is declared inside a form group. The first two fields, Segment L
  
 The closing </form> tag and all necessary closing division tags follow.
 
-Lastly, <script></script> tags referencing the p5 CDN, *art_refactor.js*, and *index.js* are included before closing the body tag. The closing </html> tag follows.
+Lastly, <script></script> tags referencing the p5 CDN, *smokebrush.js*, and *index.js* are included before closing the body tag. The closing </html> tag follows.
  
       <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js></script>
       
-      <script src="art_refactor.js"></script>
+      <script src="smokebrush.js"></script>
       
       <script src="index.js"></script>
 
