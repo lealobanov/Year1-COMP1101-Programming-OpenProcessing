@@ -12,48 +12,68 @@ First, this code defines the class SmokeBrush.
 
     class SmokeBrush {
 
-The SmokeBrush constructor accepts 5 parameters, *colour*, *segLength*, *curvature*, *x*, and *y*. The paramters are initialized with default values; these values are those that draw the default SmokeBrush curve used in the original OpenProcessing sketch. curvature, x, and y are denoted as private properties, as they are utilized in the class' methods but are otherwise left untouched for customization purposes.
+The SmokeBrush constructor accepts 8 parameters, *colour*, *segLength*, *strokeWght*, *xcurve*, *ycurve*, *curvature*, *x*, and *y*. *colour*, *segLength*, and *strokeWght* control the color, length, and thickness of individual lines drawn in the sketch, respectively. *xcurve*, *ycurve*, and *curvature* control the degree of horizontal and vertical curvature in the sketch as the cursor in clicked/dragged across the canvas. *x* and *y* are used for iterative purposes and in calculations for the class methods *dragSegment()* and *draw()*.The paramters are initialized with default values; these values are those that draw the default SmokeBrush curve used in the original OpenProcessing sketch, with slight modifications to *x-curvature* and *curvature* values to add a 3-D effect. 
 
-    constructor(colour ='FFFFFF', segLength=5, curvature=60, x=[20],y=[20]) {
-         this.colour = colour;
-         this.segLength = segLength; 
-         this._curvature = curvature;
-         this._x = x;
-         this._y = y;	
-        }
+    constructor(colour ='#B0E0E6', segLength=7, strokeWght=1, xcurve=0.15, ycurve=0, curvature=60, x=[20],y=[20]) {
+        this.colour = colour;
+        this.segLength = segLength; 
+        this.strokeWght = strokeWght;
+        this.xcurve = xcurve;
+        this.ycurve =ycurve;
+        this.curvature = curvature;
+        this.x = x;
+        this.y = y;	
+    }
         
-Subsequently, the code proceeds to define get and set methods for the class' parameters. Although most are unused in the SmokeBrush class itself, these are defined for purposes of developing a reusable component from the original OpenProcessing sketch. Incorporating getters and setters is generally considered best practice, as it allows for flexibility in code functionality; if one must make alterations to code when a class property is accessed or modified, necessary modifications can be made in the existing getter and/or setter. 
+Subsequently, the code proceeds to define get and set methods for the class' parameters. Although most are unused in the SmokeBrush class itself, these are defined for purposes of developing a reusable component from the original OpenProcessing sketch. Incorporating getters and setters is generally considered best practice, as it allows for flexibility in code functionality and modification; if one must make alterations to code when a class property is accessed or modified, necessary modifications can be made in the existing getter and/or setter as opposed to within the code itself. 
 
+    getColour(){
+        return this.colour;
+    }
     setColour(colour){
         this.colour = colour;
     }
-
+    getSegmentLength(){
+        return this.segLengthr;
+    }   
     setSegmentLength(segLength){
         this.segLength = segLength;    
     }
-
-    set curvature(curvature){
-        this._curvature = curvature;
+    getStrokeWght(){
+        return this.strokeWght;
     }
-
-    get curvature() {
-        return this._curvature;
+    setStrokeWght(strokeWght){
+        this.strokeWght = strokeWght;
     }
-
-    set x(x){
-        this._x = x;
+    getXcurve(){
+        return this.xcurve;
     }
-
-    get x(){
-        return this._x;
+    setXcurve(xcurve){
+        this.xcurve = xcurve;
     }
-
-    set y(y){
-        this._y =y;
+    getYcurve(){
+        return this.ycurve;
+    }  
+    setYcurve(ycurve){
+        this.ycurve = ycurve;
     }
-
-    get y(){
-        return this._y;
+    getCurvature() {
+        return this.curvature;
+    }
+    setCurvature(curvature){
+        this.curvature = curvature;
+    }
+    getX(){
+        return this.x;
+    }
+    setX(x){
+        this.x = x;
+    }
+    getY(){
+        return this.y;
+    }  
+    setY(y){
+        this.y =y;
     }
 
 The remainder of the refactored class consists of 4 methods: *iterate()*, *segment()*, *drawSegment()*, and *draw()*. Upon declaring the SmokeBrush class and definining its constructor, class properties are referenced using the *this.property* syntax.
