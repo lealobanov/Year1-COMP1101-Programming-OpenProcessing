@@ -261,7 +261,7 @@ Next, declaring the body of the HTML page with an opening <body> tag and assigni
 	
 	<div class="container">
 
-Inside '<div class="container">', proceed to create a row. Inside this row, instructions are provided for the webpage's user interface. 
+Inside this container, proceed to create a row. Inside this row, instructions are provided for the webpage's user interface. 
 
     <div class="row">
     
@@ -269,42 +269,47 @@ Inside '<div class="container">', proceed to create a row. Inside this row, inst
    
     </div>
  
-Inside a new row, proceed to create an inline form with the id 'customize'. Actions taken on this form are monitored by event listeners in *index.js*, and subsequently influence appearance of the sketch by modifying properties of the *SmokeBrush()* class defined in *art_refactor.js*.
+Inside a new row, proceed to create an inline form with the id 'customize'. Actions taken on this form are monitored by event listeners in *index.js*, and subsequently influence the appearance of the sketch by modifying properties of the *SmokeBrush()* class defined in *art_refactor.js*.
 
     <div class="row">	
+    
 	<form class="form-inline" id="customize" >
 
-Each form field is declared inside <div class="form-group"></div>. The first two fields, Segment Length and Stroke Weight, take the form of a draggable slider with an assignment to class="form-control-range". Additionally, maximum input values are set for both fields. The third field, Color, prompts a color wheel selector (in browser that do not support this function, the user is prompted to enter a 6-character HEX code specifying a desired color). Lastly, the final three fields are checkboxes that, when checked, randomize the color, segment length, and segment weight of the drawn curve. The Rainbow Mode field is pre-checked upon page load; thus, by default, the user will draw a rainbow-colored SmokeBrush curve.
+Each form field is declared inside a form group. The first two fields, Segment Length and Stroke Weight, take the form of a draggable slider with an assignment to class="form-control-range". Additionally, maximum input values are set for both fields. The third field, Color, prompts a color wheel selector (in browsers that do not support this function, the user is prompted to enter a 6-character HEX code specifying a desired color). Lastly, the final three fields are checkboxes that, when checked, randomize the color, segment length, and segment weight of the drawn curve. The Rainbow Mode field is pre-checked upon page load; thus, by default, the user will draw a rainbow-colored SmokeBrush curve.
  
     <div class="form-group">	
-				<label for="segLength">Segment Length</label>
-				<input type="range" class="form-control-range" style="width: 180px;" max="20" id = "segLength"/>
-			</div>
-			<div class="form-group">	
-				<label for="strokeWeight">Stroke Weight</label>
-				<input type="range" class="form-control-range" style="width: 180px;" max="6" id = "strokeWght"/>
-			</div>
-			<div class="form-group">	
-				<label for="colour">Color (HEX):</label>
-				<input type="color" input id = "colour"/>
-			</div>
-			<div class="form-group">	
-				<label for="randomcolor">&nbsp;&nbsp;Rainbow Mode</label>
-				<input type="checkbox" id = "randomcolor" checked/>
-			</div>
-			<div class="form-group">	
-				<label for="randomseglength">&nbsp;&nbsp;Randomize Segment Length</label>
-				<input type="checkbox" id = "randomseglength"/>
-			</div>
-			<div class="form-group">	
-				<label for="randomstrokeweight">&nbsp;&nbsp;Randomize Stroke Weight</label>
-				<input type="checkbox" id = "randomstrokeweight"/>
-			</div>
-    	</form>
-    	</div>
-  	</div>
+	<label for="segLength">Segment Length</label>
+	<input type="range" class="form-control-range" style="width: 180px;" max="20" id = "segLength"/>
+    </div>
+    
+    <div class="form-group">	
+	<label for="strokeWeight">Stroke Weight</label>
+	<input type="range" class="form-control-range" style="width: 180px;" max="6" id = "strokeWght"/>
+    </div>
+    
+    <div class="form-group">	
+	<label for="colour">Color (HEX):</label>
+	<input type="color" input id = "colour"/>
+    </div>
+			
+    <div class="form-group">	
+	<label for="randomcolor">&nbsp;&nbsp;Rainbow Mode</label>
+	<input type="checkbox" id = "randomcolor" checked/>
+    </div>
+			
+    <div class="form-group">	
+	<label for="randomseglength">&nbsp;&nbsp;Randomize Segment Length</label>
+	<input type="checkbox" id = "randomseglength"/>
+    </div>
+			
+    <div class="form-group">	
+	<label for="randomstrokeweight">&nbsp;&nbsp;Randomize Stroke Weight</label>
+	<input type="checkbox" id = "randomstrokeweight"/>
+    </div>
  
-Lastly, <script></script> tags referencing the p5 CDN, *art_refactor.js*, and *index.js* are included before closing the body tag.
+The closing </form> tag and all necessary </div> tags follow.
+
+Lastly, <script></script> tags referencing the p5 CDN, *art_refactor.js*, and *index.js* are included before closing the body tag. The closing </html> tag follows.
  
       <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js></script>
       
