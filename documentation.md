@@ -94,12 +94,30 @@ The *segment()* method accepts 3 arguments, *x*, *y*, and *a*. The values passed
 Inside the *segment()* method, pre-defined p5 function calls *strokeWeight()* and *stroke()* are used to style the thickness and color of the SmokeBrush curve. Further, *translate()*, *rotate()*, and *line()* are used to locate a new position on the canvas and draw a line between specified coordinates. *line()* references the *this.segLength* property, which specifies the length of the line to be drawn, given that the value of all other coordinates passed to the function is 0. *rotate()* accepts the argument a, which takes the value of *angle* set out in *dragSegment()*; this function call contributes to rotating the SmokeBrush curve as new strokes are drawn.
 
     segment(x, y, a) {
-        strokeWeight(1);
-        stroke(this.colour);
+        if (this.strokeWghtCheck() != true) {
+            strokeWeight(this.strokeWght); 
+        }
+        else {
+            let randomstrokeweight = Math.random()*9;
+            strokeWeight(randomstrokeweight);
+        }
+        if (this.colorCheck() != true) {
+            stroke(this.colour); 
+        }
+        else {
+            let randomhex = '#000000'.replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);} );
+            stroke(randomhex);
+        }
         push();
         translate(x, y);
         rotate(a);
-        line(0, 0, this.segLength, 0);
+        if (this.segLengthCheck() != true) {
+            line(0, 0, this.segLength, 0);
+        }
+        else {
+            let randomseglength = Math.random()*80;
+            line(0, 0, randomseglength, 0);
+        } 
         pop();
     }
 
