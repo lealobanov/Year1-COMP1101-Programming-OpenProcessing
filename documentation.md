@@ -228,7 +228,7 @@ The last portion of *index.js* concerns form controls on the sample HTML webpage
             event.preventDefault()
         }    
           
-Lorem ipsum  
+Lastly, a JS event listener is used to respond to user form entries.
 
     let customize = document.getElementById('customize');
 
@@ -238,39 +238,41 @@ Lorem ipsum
     
 ### example.html
 
-Lorem ipsum
+First, making the <!DOCTYPE> declaration and opening HTML tag:
 
     <!DOCTYPE html>
     <html>
 
-Lorem ipsum
+Next, declaring the header element inside <head></head> tags. A page title, 'Example Implementation', is assigned inside the <title></title> tags. 
+
+Additionally, linking to a CSS stylesheet through Bootstrap CDN.
 
     <head>
     
     <title>Example Implementation</title>	
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     </head>
 
-Lorem ipsum    
+Next, declaring the body of the HTML page with an opening <body> tag and assigning a background color. Creating a Bootstrap container class with an opening <div> tag.
     
     <body style="background-color:#F8F8F8;">
 	
 	<div class="container">
 
-Lorem ipsum
+Inside <div class="container">, proceed to create a row. Inside this row, instructions are provided for the webpage's user interface. 
 
     <div class="row">
 	    <h4 style="padding-top: 5px; font-size: 16px;">Welcome to the SmokeBrush interface! Click and drag the cursor to draw a new curve. Design your sketch by adjusting the customization properties below. Right click to clear the canvas.</h4> 
-	</div>
+    </div>
  
-Lorem ipsum 
+Inside a new row, proceed to create an inline form with the id 'customize'. Actions taken on this form are monitored by event listeners in *index.js*, and subsequently influence appearance of the sketch by modifying properties of the *SmokeBrush()* class defined in *art_refactor.js*.
 
     <div class="row">	
 	<form class="form-inline" id="customize" >
 
-Lorem ipsum
+Each form field is declared inside <div class="form-group"></div>. The first two fields, Segment Length and Stroke Weight, take the form of a draggable slider with an assignment to class="form-control-range". Additionally, maximum input values are set for both fields. The third field, Color, prompts a color wheel selector (in browser that do not support this function, the user is prompted to enter a 6-character HEX code specifying a desired color). Lastly, the final three fields are checkboxes that, when checked, randomize the color, segment length, and segment weight of the drawn curve. The Rainbow Mode field is pre-checked upon page load; thus, by default, the user will draw a rainbow-colored SmokeBrush curve.
  
     <div class="form-group">	
 				<label for="segLength">Segment Length</label>
@@ -299,14 +301,14 @@ Lorem ipsum
     	</form>
     	</div>
   	</div>
-    
- Lorem ipsum
+ 
+Lastly, <script></script> tags referencing the p5 CDN, *art_refactor.js*, and *index.js* are included before closing the body tag.
  
       <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js></script>
-
-	 <script src="art_refactor.js"></script>
-
-	 <script src="index.js"></script>
+      
+      <script src="art_refactor.js"></script>
+      
+      <script src="index.js"></script>
 
     </body>	
 
