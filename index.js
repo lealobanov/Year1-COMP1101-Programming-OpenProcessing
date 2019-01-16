@@ -1,5 +1,9 @@
+// Declare the art variable
 let art;
 
+// Declare the setup() function, which is automatically called by p5 upon load. 
+// Inside setup(), create a window-size Canvas with a black background. Assign the variable art to a new instance of the SmokeBrush() class.
+// Before calling draw(), execute the iterate() method on art.
 function setup() {
     createCanvas(windowWidth,windowHeight); 
     background('#000000');  
@@ -7,12 +11,13 @@ function setup() {
     art.iterate();
 }     
        
-
+// After running the setup() function, declare the draw() function, which is continuously called by p5.
+// Inside draw(), calling the SmokeBrush class' .draw() method on art.
 function draw() {   
     art.draw();
 }
 
-
+//Event listeners establish interaction between user actions on HTML form and modifying values of properties set out in art_refactor.js.
 document.addEventListener('DOMContentLoaded', function() {
 
     let cc = document.getElementById('colour');
