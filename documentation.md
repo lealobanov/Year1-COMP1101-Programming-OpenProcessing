@@ -255,7 +255,7 @@ Additionally, linking to a CSS stylesheet through Bootstrap CDN.
 
     </head>
 
-Next, declaring the body of the HTML page with an opening <body> tag and assigning a background color. Creating a Bootstrap container class with an opening <div> tag.
+Next, declaring the body of the HTML page with an opening <body> tag and assigning a background color. Creating a Bootstrap container class with an opening division tag.
     
     <body style="background-color:#F8F8F8;">
 	
@@ -307,7 +307,7 @@ Each form field is declared inside a form group. The first two fields, Segment L
 	<input type="checkbox" id = "randomstrokeweight"/>
     </div>
  
-The closing </form> tag and all necessary </div> tags follow.
+The closing </form> tag and all necessary closing division tags follow.
 
 Lastly, <script></script> tags referencing the p5 CDN, *art_refactor.js*, and *index.js* are included before closing the body tag. The closing </html> tag follows.
  
