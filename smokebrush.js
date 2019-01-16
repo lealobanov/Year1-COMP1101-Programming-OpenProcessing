@@ -1,4 +1,4 @@
-//Define the SmokeBrush() class. Inside the constructor, pecifying class parameters and their default values.
+//Define the SmokeBrush() class. Inside the constructor, specifying class parameters and their default values.
 
 class SmokeBrush {
     constructor(colour ='#B0E0E6', segLength=7, strokeWght=1, xcurve=0.15, ycurve=0, curvature=60, x=[20],y=[20]) {
