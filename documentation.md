@@ -204,7 +204,7 @@ Once the canvas and new SmokeBrush class instance have been initialized, the *dr
     }
 
 
-The last portion of *index.js* concerns form controls on the sample HTML webpage, discussed below. JS event listeners are established to respond to user input on HTML form elements, and subsequently call *SmokeBrush()* set functions to reassign values to class properties. This facilitates interaction between *example.HTML*, *index.js*, and the SmokeBrush class defined in *smokebrush.js*.
+The last portion of *index.js* concerns form controls on the sample HTML webpage, discussed below. JS event listeners are established to respond to user input on HTML form elements, and subsequently call *SmokeBrush()* set functions to reassign values to class properties. This facilitates interaction between *index.HTML*, *index.js*, and the SmokeBrush class defined in *smokebrush.js*.
 
     document.addEventListener('DOMContentLoaded', function(){
         let cc = document.getElementById('colour');
