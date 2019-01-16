@@ -227,5 +227,88 @@ The last portion of *index.js* concerns form controls on the sample HTML webpage
         customize.addEventListener('submit', function (event){
             event.preventDefault()
         }    
-        
+          
+Lorem ipsum  
+
+    let customize = document.getElementById('customize');
+
+    customize.addEventListener('submit', function (event){
+        event.preventDefault();});
+    });
+    
 ### example.html
+
+Lorem ipsum
+
+    <!DOCTYPE html>
+    <html>
+
+Lorem ipsum
+
+    <head>
+    
+    <title>Example Implementation</title>	
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    </head>
+
+Lorem ipsum    
+    
+    <body style="background-color:#F8F8F8;">
+	
+	<div class="container">
+
+Lorem ipsum
+
+    <div class="row">
+	    <h4 style="padding-top: 5px; font-size: 16px;">Welcome to the SmokeBrush interface! Click and drag the cursor to draw a new curve. Design your sketch by adjusting the customization properties below. Right click to clear the canvas.</h4> 
+	</div>
+ 
+Lorem ipsum 
+
+    <div class="row">	
+	<form class="form-inline" id="customize" >
+
+Lorem ipsum
+ 
+    <div class="form-group">	
+				<label for="segLength">Segment Length</label>
+				<input type="range" class="form-control-range" style="width: 180px;" max="20" id = "segLength"/>
+			</div>
+			<div class="form-group">	
+				<label for="strokeWeight">Stroke Weight</label>
+				<input type="range" class="form-control-range" style="width: 180px;" max="6" id = "strokeWght"/>
+			</div>
+			<div class="form-group">	
+				<label for="colour">Color (HEX):</label>
+				<input type="color" input id = "colour"/>
+			</div>
+			<div class="form-group">	
+				<label for="randomcolor">&nbsp;&nbsp;Rainbow Mode</label>
+				<input type="checkbox" id = "randomcolor" checked/>
+			</div>
+			<div class="form-group">	
+				<label for="randomseglength">&nbsp;&nbsp;Randomize Segment Length</label>
+				<input type="checkbox" id = "randomseglength"/>
+			</div>
+			<div class="form-group">	
+				<label for="randomstrokeweight">&nbsp;&nbsp;Randomize Stroke Weight</label>
+				<input type="checkbox" id = "randomstrokeweight"/>
+			</div>
+    	</form>
+    	</div>
+  	</div>
+    
+ Lorem ipsum
+ 
+      <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js></script>
+
+	 <script src="art_refactor.js"></script>
+
+	 <script src="index.js"></script>
+
+    </body>	
+
+    </html>
+    
